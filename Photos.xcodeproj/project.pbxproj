@@ -17,6 +17,10 @@
 		5924CEBB1A937783000D86A4 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5924CEBA1A937783000D86A4 /* StoreKit.framework */; };
 		5924CEBD1A93A6C4000D86A4 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5924CEBC1A93A6C4000D86A4 /* IAPHelper.swift */; };
 		593C268A1A9B8B470088A3AD /* PaymentTransactionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593C26891A9B8B470088A3AD /* PaymentTransactionObserver.swift */; };
+		596206DE1AA2072500A3F282 /* cat1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 596206DA1AA2072500A3F282 /* cat1.JPG */; };
+		596206DF1AA2072500A3F282 /* cat2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 596206DB1AA2072500A3F282 /* cat2.JPG */; };
+		596206E01AA2072500A3F282 /* cat3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 596206DC1AA2072500A3F282 /* cat3.JPG */; };
+		596206E11AA2072500A3F282 /* cat4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 596206DD1AA2072500A3F282 /* cat4.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,12 @@
 		5924CEBA1A937783000D86A4 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5924CEBC1A93A6C4000D86A4 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		593C26891A9B8B470088A3AD /* PaymentTransactionObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTransactionObserver.swift; sourceTree = "<group>"; };
+		596206D31AA2040300A3F282 /* CatPhotos */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = CatPhotos; sourceTree = BUILT_PRODUCTS_DIR; };
+		596206D61AA2040300A3F282 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		596206DA1AA2072500A3F282 /* cat1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat1.JPG; sourceTree = "<group>"; };
+		596206DB1AA2072500A3F282 /* cat2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat2.JPG; sourceTree = "<group>"; };
+		596206DC1AA2072500A3F282 /* cat3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat3.JPG; sourceTree = "<group>"; };
+		596206DD1AA2072500A3F282 /* cat4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat4.JPG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,7 @@
 				5924CEBA1A937783000D86A4 /* StoreKit.framework */,
 				5924CE951A9376D7000D86A4 /* Photos */,
 				5924CEAD1A9376D7000D86A4 /* PhotosTests */,
+				596206D41AA2040300A3F282 /* CatPhotos */,
 				5924CE941A9376D7000D86A4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,6 +91,7 @@
 			children = (
 				5924CE931A9376D7000D86A4 /* Photos.app */,
 				5924CEAA1A9376D7000D86A4 /* PhotosTests.xctest */,
+				596206D31AA2040300A3F282 /* CatPhotos */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +137,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		596206D41AA2040300A3F282 /* CatPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				596206DA1AA2072500A3F282 /* cat1.JPG */,
+				596206DB1AA2072500A3F282 /* cat2.JPG */,
+				596206DC1AA2072500A3F282 /* cat3.JPG */,
+				596206DD1AA2072500A3F282 /* cat4.JPG */,
+				596206D51AA2040300A3F282 /* Supporting Files */,
+			);
+			path = CatPhotos;
+			sourceTree = "<group>";
+		};
+		596206D51AA2040300A3F282 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				596206D61AA2040300A3F282 /* ContentInfo.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +195,21 @@
 			productReference = 5924CEAA1A9376D7000D86A4 /* PhotosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		596206D21AA2040300A3F282 /* CatPhotos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596206D91AA2040300A3F282 /* Build configuration list for PBXNativeTarget "CatPhotos" */;
+			buildPhases = (
+				596206D11AA2040300A3F282 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CatPhotos;
+			productName = CatPhotos;
+			productReference = 596206D31AA2040300A3F282 /* CatPhotos */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -185,6 +232,9 @@
 						CreatedOnToolsVersion = 6.1.1;
 						TestTargetID = 5924CE921A9376D7000D86A4;
 					};
+					596206D21AA2040300A3F282 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 				};
 			};
 			buildConfigurationList = 5924CE8E1A9376D7000D86A4 /* Build configuration list for PBXProject "Photos" */;
@@ -202,6 +252,7 @@
 			targets = (
 				5924CE921A9376D7000D86A4 /* Photos */,
 				5924CEA91A9376D7000D86A4 /* PhotosTests */,
+				596206D21AA2040300A3F282 /* CatPhotos */,
 			);
 		};
 /* End PBXProject section */
@@ -221,6 +272,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		596206D11AA2040300A3F282 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596206E01AA2072500A3F282 /* cat3.JPG in Resources */,
+				596206DE1AA2072500A3F282 /* cat1.JPG in Resources */,
+				596206DF1AA2072500A3F282 /* cat2.JPG in Resources */,
+				596206E11AA2072500A3F282 /* cat4.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +478,30 @@
 			};
 			name = Release;
 		};
+		596206D71AA2040300A3F282 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CatPhotos/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		596206D81AA2040300A3F282 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CatPhotos/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -445,6 +531,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		596206D91AA2040300A3F282 /* Build configuration list for PBXNativeTarget "CatPhotos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596206D71AA2040300A3F282 /* Debug */,
+				596206D81AA2040300A3F282 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

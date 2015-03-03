@@ -16,6 +16,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var statusLabel: UILabel!
+    
     var detailItem: SKProduct? {
         didSet {
             // Update the view.
@@ -23,6 +26,8 @@ class DetailViewController: UIViewController {
         }
     }
 
+    //MARK: Action methods
+    
     @IBAction func buyPressed(sender: UIButton) {
         
         if let product = self.detailItem {
@@ -33,6 +38,8 @@ class DetailViewController: UIViewController {
             updateUIForPurchaseInProgress(true)
         }
     }
+    
+    //MARK: Updating UI methods
     
     func configureView() {
         // Update the user interface for the detail item.
@@ -78,6 +85,20 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func updateUIForDownloadInProgress(inProgress: Bool) {
+        statusLabel.hidden = !inProgress
+        progressView.hidden = !inProgress
+    }
+    
+    func displayErrorAlert(error: NSError) {
+        
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription , preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: Purchase Notification methods
+    
     func receivedPurchaseInProgressNotification(notification: NSNotification) {
         
         updateUIForPurchaseInProgress(true)
@@ -89,17 +110,54 @@ class DetailViewController: UIViewController {
         
         let error = notification.object as NSError
         
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription , preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        displayErrorAlert(error)
     }
     
     func receivedPurchaseCompletedNotification(notification: NSNotification){
         
         updateUIForPurchaseInProgress(false)
-        
-        //show indicator that download is in progress
     }
+    
+    
+    //MARK: Download Notification methods
+    
+    func receivedDownloadWaitingNotification(notification: NSNotification) {
+        
+        statusLabel.text = "waiting"
+        progressView.progress = 0.0
+        
+        updateUIForDownloadInProgress(true)
+    }
+    
+    func receivedDownloadActiveNotification(notification: NSNotification) {
+        
+        let download = notification.object as SKDownload
+        
+        statusLabel.text = "downloading content"
+        progressView.progress = download.progress
+        
+        updateUIForDownloadInProgress(true)
+    }
+    
+    func receivedDownloadFinishedNotification(notification: NSNotification) {
+        
+        statusLabel.text = "download complete"
+        progressView.progress = 1.0
+        
+        buyButton.setTitle(" Purchased ", forState: .Normal)
+        buyButton.enabled = false
+        updateUIForPurchaseInProgress(false)
+    }
+    
+    func receivedDownloadFailedNotification(notification: NSNotification) {
+        
+        let download = notification.object as? SKDownload
+        let error = download?.error
+        
+        displayErrorAlert(error!)
+    }
+    
+    //MARK: Notifications methods
     
     func signUpForNotifications() {
         
@@ -108,7 +166,17 @@ class DetailViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedPurchaseFailedNotification:", name: IAPTransactionFailed, object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedPurchaseCompletedNotification:", name: IAPTransactionComplete, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedDownloadWaitingNotification:", name: IAPDownloadWaiting, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedDownloadActiveNotification:", name: IAPDownloadActive, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedDownloadFinishedNotification:", name: IAPDownloadFinished, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "receivedDownloadFailedNotification:", name: IAPDownloadFailed, object: nil)
     }
+    
+    //MARK: ViewController Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()

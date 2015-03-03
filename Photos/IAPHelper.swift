@@ -16,7 +16,7 @@ class IAPHelper: NSObject, SKProductsRequestDelegate {
     
     override init() {
         
-        productIdentifiers = NSSet(objects: "NaturePhotos", "CatPhotos", "DogPhotos")
+        productIdentifiers = NSSet(objects: "com.masteringios.Photos.WinterPhotos", "com.masteringios.Photos.CatPhotos", "com.masteringios.Photos.DogPhotos")
     }
     
     func requestProductsWithCompletionHandler(completionHandler:(Bool, [SKProduct]!) -> Void){

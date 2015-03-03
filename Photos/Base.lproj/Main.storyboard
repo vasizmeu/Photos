@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -39,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRx-Cx-xao">
-                                <rect key="frame" x="277" y="279" width="46" height="30"/>
+                                <rect key="frame" x="277" y="234.5" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -48,19 +49,37 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mn4-hc-nj6">
-                                <rect key="frame" x="290" y="284" width="20" height="20"/>
+                                <rect key="frame" x="290" y="234.5" width="20" height="20"/>
                             </activityIndicatorView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-d2-wYS">
+                                <rect key="frame" x="36" y="288.5" width="528" height="2"/>
+                            </progressView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plm-mN-ToN">
+                                <rect key="frame" x="36" y="310.5" width="528" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JRx-Cx-xao" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="85" id="HgW-uL-1yU"/>
+                            <constraint firstItem="Plm-mN-ToN" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="20" id="1HX-OA-a6t"/>
+                            <constraint firstItem="PO5-d2-wYS" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="20" id="2MB-r9-rtX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PO5-d2-wYS" secondAttribute="trailing" constant="20" id="2iA-jm-dLz"/>
+                            <constraint firstItem="Plm-mN-ToN" firstAttribute="top" secondItem="PO5-d2-wYS" secondAttribute="bottom" constant="20" id="59d-Up-5Kf"/>
+                            <constraint firstAttribute="centerX" secondItem="PO5-d2-wYS" secondAttribute="centerX" id="6kF-cA-4QZ"/>
+                            <constraint firstItem="JRx-Cx-xao" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="20" id="Ewo-8F-e6T"/>
+                            <constraint firstItem="JRx-Cx-xao" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="40" id="HgW-uL-1yU"/>
                             <constraint firstAttribute="centerX" secondItem="mn4-hc-nj6" secondAttribute="centerX" id="Rbw-J2-h7z"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
                             <constraint firstAttribute="centerX" secondItem="JRx-Cx-xao" secondAttribute="centerX" id="WAL-Uo-PtB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Plm-mN-ToN" secondAttribute="trailing" constant="20" id="XK6-Zm-0TT"/>
                             <constraint firstAttribute="centerY" secondItem="JRx-Cx-xao" secondAttribute="centerY" id="ifQ-uu-I0i"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" constant="-116.5" id="jWN-iV-94e"/>
-                            <constraint firstItem="mn4-hc-nj6" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="89.5" id="pYn-vM-hH6"/>
+                            <constraint firstItem="mn4-hc-nj6" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="40" id="pYn-vM-hH6"/>
+                            <constraint firstItem="PO5-d2-wYS" firstAttribute="top" secondItem="JRx-Cx-xao" secondAttribute="bottom" constant="24" id="qjc-qX-ZNF"/>
                             <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstAttribute="centerX" secondItem="Plm-mN-ToN" secondAttribute="centerX" id="yjs-9N-7ah"/>
                             <constraint firstAttribute="centerY" secondItem="JRx-Cx-xao" secondAttribute="centerY" id="ywy-1q-McO"/>
                         </constraints>
                         <variation key="default">
@@ -76,11 +95,13 @@
                         <outlet property="activityIndicator" destination="mn4-hc-nj6" id="E1a-5O-Ebz"/>
                         <outlet property="buyButton" destination="JRx-Cx-xao" id="5Ni-B6-j4y"/>
                         <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="progressView" destination="PO5-d2-wYS" id="oKj-AM-R6c"/>
+                        <outlet property="statusLabel" destination="Plm-mN-ToN" id="xUh-e1-UWL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="711" y="91"/>
+            <point key="canvasLocation" x="728" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">
