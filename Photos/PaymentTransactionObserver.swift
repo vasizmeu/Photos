@@ -12,6 +12,7 @@ import StoreKit
 let IAPTransactionInProgress = "IAPTransactionInProgress"
 let IAPTransactionFailed = "IAPTransactionFailed"
 let IAPTransactionComplete = "IAPTransactionComplete"
+let IAPTransactionRestore = "IAPTransactionRestore"
 
 let IAPDownloadWaiting = "IAPDownloadWaiting"
 let IAPDownloadActive = "IAPDownloadActive"
@@ -79,6 +80,8 @@ class PaymentTransactionObserver : NSObject, SKPaymentTransactionObserver {
     
     func completeTransaction(transaction: SKPaymentTransaction) {
         
+        print("id \(transaction.transactionIdentifier)")
+        
         NSNotificationCenter.defaultCenter().postNotificationName(IAPTransactionComplete, object: transaction)
         
         
@@ -90,6 +93,16 @@ class PaymentTransactionObserver : NSObject, SKPaymentTransactionObserver {
     
     func restoreTransaction(transaction: SKPaymentTransaction) {
         
+        let productId = "com.masteringios.Photos.CatPhotos" //hard coded the restore product instead of reading it from user defaults
+        
+        if productId == transaction.payment.productIdentifier {
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(IAPTransactionRestore, object: transaction)
+            
+            if let downloads = transaction.downloads {
+                SKPaymentQueue.defaultQueue().startDownloads(downloads)
+            }
+        }                
     }
     
     //MARK: Download related methods
