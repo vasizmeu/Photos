@@ -22,7 +22,7 @@ class IAPHelper: NSObject, SKProductsRequestDelegate {
     func requestProductsWithCompletionHandler(completionHandler:(Bool, [SKProduct]!) -> Void){
         self.completionHandler = completionHandler
         
-        let productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
+        let productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers as Set<NSObject>)
         productsRequest.delegate = self
         productsRequest.start()
     }
@@ -38,7 +38,7 @@ class IAPHelper: NSObject, SKProductsRequestDelegate {
             
             for prod in response.products {
                 if prod.isKindOfClass(SKProduct) {
-                    products.append(prod as SKProduct)
+                    products.append(prod as! SKProduct)
                 }
             }
             

@@ -108,7 +108,7 @@ class DetailViewController: UIViewController {
         
         updateUIForPurchaseInProgress(false)
         
-        let error = notification.object as NSError
+        let error = notification.object as! NSError
         
         displayErrorAlert(error)
     }
@@ -131,7 +131,7 @@ class DetailViewController: UIViewController {
     
     func receivedDownloadActiveNotification(notification: NSNotification) {
         
-        let download = notification.object as SKDownload
+        let download = notification.object as! SKDownload
         
         statusLabel.text = "downloading content"
         progressView.progress = download.progress

@@ -67,8 +67,8 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let product = objects[indexPath.row] as SKProduct
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
+                let product = objects[indexPath.row] as! SKProduct
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = product
                 controller.title = product.localizedTitle
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -88,9 +88,9 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
-        let product = objects[indexPath.row] as SKProduct
+        let product = objects[indexPath.row] as! SKProduct
         cell.textLabel!.text = product.localizedTitle
         return cell
     }
